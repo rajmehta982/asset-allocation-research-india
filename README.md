@@ -10,15 +10,18 @@ Asset Classes:
 3)	Hang Seng – Hong Kong (China) Equities
 4)	Gold
 5)	Debt – GILT Funds
+
 What we need to do effectively is to come up with expected INR returns for each of these asset classes. Based on the expected returns we can create a portfolio with optimal allocation to each market.
 Our investment strategy follows these steps:
 1)	Calculate expected returns for the Indian market and adjust allocation to Indian market accordingly. The allocation range would be constrained between 0 to 100%
 2)	We only diversify out of the Indian market if the negative outlook breaches a certain threshold – therefore, our strategy is returns are primarily driven by Indian equities – and diversification out of them is only used when outlook for Indian equities looks grim.
 Calculating Expected Returns for Indian Equities:
+
 We use the following predictor variables to predict market returns for Indian equities
 1)	CAPE
 2)	Dollar/INR exchange rate
 3)	Momentum
+
 A random forest model is training which uses different features based on CAPE, Dollar/INR Exchange Rate, and Momentum. It uses monthly data to predict drawdowns for the next month. Drawdown is defined as fall of more than 2% in the NIFTY 50.
 If there is no drawdown prediction, we allocate 100% to our portfolio of 20 stocks as defined by the quantitative fundamental approach of stock selection.
 If a drawdown is predicted, we allocate to a portfolio of gold, debt, and foreign equities. This portfolio is defined as follows:
